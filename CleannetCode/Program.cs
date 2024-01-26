@@ -16,6 +16,7 @@
             bool isIntNumber = false;
             int userNumber = -1;
             bool isWin = false;
+            int count = 0;
 
             while(!isWin) 
             {
@@ -37,15 +38,19 @@
                 if (userNumber == guess)
                 {
                     Console.WriteLine($"Поздравляю {name}, ты угадал!");
+                    ++count;
+                    Console.WriteLine($"{name}, угадал число {guess} за {count} попыток!");
                     isWin = true;
                 }
                 else if (userNumber > guess)
                 {
                     Console.WriteLine("Нет, загаданное число меньше)");
+                    count++;
                 }
                 else
                 {
                     Console.WriteLine("Нет, загаданное число больше)");
+                    count++;
                 }
             }
 
