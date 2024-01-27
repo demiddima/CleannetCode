@@ -1,4 +1,6 @@
-﻿using ToDoList.Operations;
+﻿using ToDoList.Infrastructure.Menu;
+using ToDoList.Operations;
+using ToDoList.Operations.UserOperation;
 
 namespace ToDoList.Infrastructure
 {
@@ -12,7 +14,7 @@ namespace ToDoList.Infrastructure
                 new LoginUserOperation()
             };
 
-            Menu menu = new Menu(operations);
+            TaskMenu menu = new TaskMenu(operations);
             Application app = new Application(menu);
             app.Run();
         }

@@ -1,4 +1,4 @@
-﻿namespace ToDoList.Operations
+﻿namespace ToDoList.Operations.TaskOperation
 {
     public class DeleteTaskOperation : IOperation
     {

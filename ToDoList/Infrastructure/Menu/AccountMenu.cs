@@ -7,11 +7,11 @@ using ToDoList.Operations;
 
 namespace ToDoList.Infrastructure
 {
-    internal class Menu
+    internal class AccountMenu
     {
         private IOperation[] _operations;
 
-        public Menu(IOperation[] operations)
+        public AccountMenu(IOperation[] operations)
         {
             _operations = operations;
         }

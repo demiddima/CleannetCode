@@ -4,16 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoList.Operations
+namespace ToDoList.Operations.TaskOperation
 {
-    internal class UpdateTaskOperation : IOperation
+    internal class CreateNewTaskOperation : IOperation
     {
-        public string Name { get; }
+        public string Name => "Create new Task";
         public void Execute()
         {
             throw new NotImplementedException();
         }
     }
-
-
 }

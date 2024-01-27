@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using ToDoList.Models;
 using ToDoList.Storages;
 
-namespace ToDoList.Operations
+namespace ToDoList.Operations.UserOperation
 {
     internal class CreateNewUserOperation : IOperation
     {
@@ -17,19 +17,22 @@ namespace ToDoList.Operations
             string? email = Console.ReadLine();
 
 
-
             User newUser = new User()
             {
                 Email = email
             };
 
             bool userCreated = UserStorage.Create(newUser);
-            if(!userCreated)
+            if (!userCreated)
             {
                 Console.WriteLine("Пользователь с таким email уже существует");
             }
+            else
+            {
+                Console.WriteLine("Пользователь создан");
+            }
 
-            Console.WriteLine("Пользователь создан");
+            
         }
     }
 }

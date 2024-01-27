@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ToDoList.Infrastructure.Menu;
 
 namespace ToDoList.Infrastructure
 {
     internal class Application
     {
-        private readonly Menu _menu;
+        private readonly TaskMenu _menu;
 
-        public Application(Menu menu)
+        public Application(TaskMenu menu)
         {
             _menu = menu;
         }
@@ -24,15 +25,13 @@ namespace ToDoList.Infrastructure
             while (!userQuit)
             {
 
-                List<string> operationNames = new List<string>();
-                operationNames.Add("q - выход из программы");
-                operationNames.AddRange(_menu.GetOperationNames());
+                List<string> operationNames = ["q - выход из программы", .. _menu.GetOperationNames()];
 
                 Console.WriteLine(string.Join(", ", operationNames));
 
                 Console.Write("Введите номер операции: ");
 
-                 string? userInput = Console.ReadLine();
+                string? userInput = Console.ReadLine();
                 if (userInput.Trim().ToLower() == "q" && userInput != null)
                 {
                     userQuit = true;

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToDoList.Operations
+namespace ToDoList.Operations.TaskOperation
 {
-    internal class CreateNewTaskOperation : IOperation
+    internal class UpdateTaskOperation : IOperation
     {
         public string Name { get; }
         public void Execute()
@@ -14,4 +14,6 @@ namespace ToDoList.Operations
             throw new NotImplementedException();
         }
     }
+
+
 }

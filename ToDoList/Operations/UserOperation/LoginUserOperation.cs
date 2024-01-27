@@ -8,7 +8,7 @@ using ToDoList.Infrastructure;
 using ToDoList.Models;
 using ToDoList.Storages;
 
-namespace ToDoList.Operations
+namespace ToDoList.Operations.UserOperation
 {
     internal class LoginUserOperation : IOperation
     {
@@ -21,6 +21,12 @@ namespace ToDoList.Operations
 
             if (user == null)
             {
+                Console.WriteLine("Такого пользователя не существует");
+               
+            }
+            else
+            {
+                Console.WriteLine($"LogIn пользователя {user.Email}") ;
                 UserSession.CurrentUser = user;
             }
         }
