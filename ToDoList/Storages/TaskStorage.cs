@@ -32,5 +32,33 @@ namespace ToDoList.Storages
                 }
             }
         }
+
+        public static bool Check(int id)
+        {
+            
+            using (AppDbContext db = new AppDbContext())
+            {
+                Task? task = db.Tasks.SingleOrDefault(t => t.Id == id);
+                return task != null;
+
+            }
+        }
+
+
+        public static bool Compete(int id)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {               
+                if(Check(id))
+                {
+                    var task = db.Tasks.SingleOrDefault<Task>(t => t.Id == id);
+                    task.IsDone = false;
+                    task.UpdateDate = DateTime.Now;
+                    db.SaveChanges();
+                    return true;
+                }
+                else { return false; }
+            }
+        }
     }
 }
