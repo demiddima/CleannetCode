@@ -26,9 +26,10 @@ namespace ToDoList.Operations.UserOperation
             }
             else
             {
-                Console.WriteLine($"LogIn пользователя {user.Email}") ;
+                Console.WriteLine($"Осуществлён вход в аккаунт {user.Email}") ;
                 UserSession.CurrentUser = user;
                 UserSession.isLoggedIn = true;
+
             }
         }
     }

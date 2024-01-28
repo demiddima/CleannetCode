@@ -8,7 +8,7 @@ namespace ToDoList.Operations.TaskOperation
 {
     internal class UpdateTaskOperation : IOperation
     {
-        public string Name { get; }
+        public string Name => "Update the task";
         public void Execute()
         {
             throw new NotImplementedException();

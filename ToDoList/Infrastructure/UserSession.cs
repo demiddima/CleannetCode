@@ -11,5 +11,6 @@ namespace ToDoList.Infrastructure
     {
         public static User CurrentUser { get; set; }
         public static bool isLoggedIn {  get; set; }
+
     }
 }

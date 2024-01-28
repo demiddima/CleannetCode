@@ -1,11 +1,13 @@
-﻿namespace ToDoList.Operations.TaskOperation
+﻿using ToDoList.Storages;
+
+namespace ToDoList.Operations.TaskOperation
 {
     public class ReadAllTaskOperation : IOperation
     {
-        public string Name { get; }
+        public string Name => "Read all the tasks";
         public void Execute()
         {
-            throw new NotImplementedException();
+            TaskStorage.ReadAllTasks();
         }
     }
 }

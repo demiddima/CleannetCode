@@ -2,7 +2,7 @@
 {
     public class CompleteTaskOperation : IOperation
     {
-        public string Name { get; }
+        public string Name => "Complete the task";
         public void Execute()
         {
             throw new NotImplementedException();
