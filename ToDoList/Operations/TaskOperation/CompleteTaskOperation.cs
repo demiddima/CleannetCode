@@ -13,19 +13,18 @@ namespace ToDoList.Operations.TaskOperation
                 Console.WriteLine("id выполненной задачи: ");
                 if(int.TryParse(Console.ReadLine(), out int id))
                 {
-                    if (!TaskStorage.Compete(id))
-                    {
-                        Console.WriteLine($"Задачи с {id} не существует");
-                    }
-                    else
+                    if (TaskStorage.Compete(id))
                     {
                         Console.WriteLine($"Задача {id} выполнена!");
                         isRight = true;
                     }
+                    else
+                    {
+                        Console.WriteLine($"Задачи с {id} не существует");
+                       
+                    }
 
                 }
-
-
             }
 
         }

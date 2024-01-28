@@ -28,18 +28,17 @@ namespace ToDoList.Storages
 
                 foreach(var task in tasks)
                 {
-                    Console.WriteLine($"id{task.Id} " + task.Name);
+                    Console.WriteLine($"id{task.Id} status {task.IsDone} " + task.Name);
                 }
             }
         }
 
-        public static bool Check(int id)
+        public static Task? GetById(int id)
         {
             
             using (AppDbContext db = new AppDbContext())
             {
-                Task? task = db.Tasks.SingleOrDefault(t => t.Id == id);
-                return task != null;
+                return db.Tasks.SingleOrDefault(t => t.Id == id);
 
             }
         }
@@ -49,15 +48,61 @@ namespace ToDoList.Storages
         {
             using (AppDbContext db = new AppDbContext())
             {               
-                if(Check(id))
+
+                var task = db.Tasks.SingleOrDefault<Task>(t => t.Id == id);
+                if (task != null)
                 {
-                    var task = db.Tasks.SingleOrDefault<Task>(t => t.Id == id);
-                    task.IsDone = false;
+                    task.IsDone = true;
                     task.UpdateDate = DateTime.Now;
                     db.SaveChanges();
                     return true;
                 }
-                else { return false; }
+                return false;
+
+            }
+        }
+
+        public static bool Delete(int id)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var task = db.Tasks.SingleOrDefault<Task>(t => t.Id == id);
+                if (task != null)
+                {
+                    db.Tasks.Remove(task);
+                    db.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+        }
+
+        internal static bool Update(int id, string name, string descript)
+        {
+            using (AppDbContext db = new AppDbContext())
+            {
+                var task = db.Tasks.SingleOrDefault<Task>(t => t.Id == id);
+                if (task != null)
+                {
+                    if(string.IsNullOrEmpty(name))
+                    {
+                        name = task.Name;
+                    }
+
+                    if (string.IsNullOrEmpty(descript))
+                    {
+                        descript = task.Description;
+                    }
+                       
+
+                    task.Name = name;
+                    task.Description = descript;
+                    task.UpdateDate = DateTime.Now;
+
+                    db.SaveChanges();
+                    return true;
+                }
+                return false;
             }
         }
     }
