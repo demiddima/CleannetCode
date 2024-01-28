@@ -1,5 +1,6 @@
-﻿using ToDoList.Infrastructure.Menu;
+﻿using ToDoList.Infrastructure.Menus;
 using ToDoList.Operations;
+using ToDoList.Operations.TaskOperation;
 using ToDoList.Operations.UserOperation;
 
 namespace ToDoList.Infrastructure
@@ -8,14 +9,24 @@ namespace ToDoList.Infrastructure
     {
         static void Main(string[] args)
         {
-            IOperation[] operations = new IOperation[]
+            IOperation[] accountOperations = new IOperation[]
             {
                 new CreateNewUserOperation(),
                 new LoginUserOperation()
             };
 
-            TaskMenu menu = new TaskMenu(operations);
-            Application app = new Application(menu);
+            IOperation[] taskOperations = new IOperation[]
+            {
+                new CreateNewTaskOperation(),
+                new ReadAllTaskOperation(),
+                new UpdateTaskOperation(),
+                new CompleteTaskOperation(),
+                new DeleteTaskOperation()
+            };
+
+            AccountMenu accountMenu = new AccountMenu(accountOperations);
+            TaskMenu taskMenu = new TaskMenu(taskOperations);
+            Application app = new Application(accountMenu, taskMenu);
             app.Run();
         }
     }

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using ToDoList.Operations;
 
-namespace ToDoList.Infrastructure
+namespace ToDoList.Infrastructure.Menus
 {
-    internal class AccountMenu
+    public class Menu
     {
         private IOperation[] _operations;
 
-        public AccountMenu(IOperation[] operations)
+        public Menu(IOperation[] operations)
         {
             _operations = operations;
         }

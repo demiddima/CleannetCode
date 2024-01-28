@@ -28,6 +28,7 @@ namespace ToDoList.Operations.UserOperation
             {
                 Console.WriteLine($"LogIn пользователя {user.Email}") ;
                 UserSession.CurrentUser = user;
+                UserSession.isLoggedIn = true;
             }
         }
     }

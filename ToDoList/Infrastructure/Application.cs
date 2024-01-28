@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ToDoList.Infrastructure.Menu;
+using ToDoList.Infrastructure.Menus;
 
 namespace ToDoList.Infrastructure
 {
     internal class Application
     {
-        private readonly TaskMenu _menu;
+        private Menu _currentMenu;
+        private readonly AccountMenu _accountMenu;
+        private readonly TaskMenu _taskMenu;
+        
 
-        public Application(TaskMenu menu)
+        public Application(AccountMenu accountMenu, TaskMenu taskMen)
         {
-            _menu = menu;
+            _accountMenu = accountMenu;
+            _taskMenu = taskMen;
         }
 
         public void Run()
@@ -25,7 +29,10 @@ namespace ToDoList.Infrastructure
             while (!userQuit)
             {
 
-                List<string> operationNames = ["q - выход из программы", .. _menu.GetOperationNames()];
+                // Выбор между меню для учетной записи и меню для задач
+                _currentMenu = UserSession.isLoggedIn ? _taskMenu : _accountMenu;
+
+                List<string> operationNames = ["q - выход из программы", .. _currentMenu.GetOperationNames()];
 
                 Console.WriteLine(string.Join(", ", operationNames));
 
@@ -40,9 +47,8 @@ namespace ToDoList.Infrastructure
                 bool isNumber = int.TryParse(userInput, out int operationNumber);
                 if (isNumber)
                 {
-                    _menu.Enter(operationNumber);
+                    _currentMenu.Enter(operationNumber);
                 }
-
 
             }
 

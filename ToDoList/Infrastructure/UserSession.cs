@@ -10,5 +10,6 @@ namespace ToDoList.Infrastructure
     internal static class UserSession
     {
         public static User CurrentUser { get; set; }
+        public static bool isLoggedIn {  get; set; }
     }
 }
