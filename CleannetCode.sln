@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleannetCode", "CleannetCode\CleannetCode.csproj", "{7E81B0CD-508B-4FEB-A848-5CDD3C04122D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoList", "ToDoList\ToDoList.csproj", "{C2F57D65-51C9-450B-92B6-D43B4AFBEA88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoList", "ToDoList\ToDoList.csproj", "{C2F57D65-51C9-450B-92B6-D43B4AFBEA88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{BAA68E04-60B3-471C-95BE-DB1EC5CA9BA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{C2F57D65-51C9-450B-92B6-D43B4AFBEA88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2F57D65-51C9-450B-92B6-D43B4AFBEA88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2F57D65-51C9-450B-92B6-D43B4AFBEA88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAA68E04-60B3-471C-95BE-DB1EC5CA9BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAA68E04-60B3-471C-95BE-DB1EC5CA9BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAA68E04-60B3-471C-95BE-DB1EC5CA9BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAA68E04-60B3-471C-95BE-DB1EC5CA9BA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
